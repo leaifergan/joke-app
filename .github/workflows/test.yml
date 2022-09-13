@@ -13,13 +13,12 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install dependancies    
+      - name: Install dependancies
         run: npm ci
 
       - name: Run unit tests
         run: npm test
 
-      
       - name: Build
         run: npm run build 
 
@@ -31,8 +30,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - uses: akhileshns/heroku-deploy@v3.12.12
-          with:
-            heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-            heroku_app_name: "joke-app" #Must be unique in Heroku
-            heroku_email: "leaifergan15@gmail.com"
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+          heroku_app_name: "joke-app-iw1" #Must be unique in Heroku
+          heroku_email: "leaifergan15@gmail.com"
